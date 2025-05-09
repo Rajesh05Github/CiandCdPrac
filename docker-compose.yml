@@ -2,8 +2,8 @@ version: '3.8'
 services:
   frontend:
     build:
-      context: .  # Assuming the Dockerfile is at ./Frontend/DockerFile
-      dockerfile: ./Frontend/DockerFile
+      context: ./Frontend  # Assuming the Dockerfile is at ./Frontend/DockerFile
+      dockerfile: DockerFile
     volumes:
       - ./frontend/build:/usr/share/nginx/html  # Mount the build folder to Nginx's HTML directory
     ports:
@@ -13,8 +13,8 @@ services:
   
   backend:
     build:
-      context: .  # Assuming the Dockerfile is at ./backend/DockerFile
-      dockerfile: ./backend/DockerFile
+      context: ./backend  # Assuming the Dockerfile is at ./backend/DockerFile
+      dockerfile: DockerFile
     container_name: backend
     restart: always
     ports:
