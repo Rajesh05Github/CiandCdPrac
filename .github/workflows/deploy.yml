@@ -1,4 +1,4 @@
-name: ci/cd to ec2
+name: CI/CD to EC2
 
 on:
   push:
@@ -17,14 +17,30 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
-      - name: Deploy to EC2
+      - name: Deploy to EC2 via SSH
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@13.126.225.168  << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@13.126.225.168 << 'EOF'
+            set -e  # Stop script on any error
+
             cd /home/ubuntu
-            rm -rf CiandCdPrac
+
+            # Remove existing directory if it exists
+            if [ -d "CiandCdPrac" ]; then
+              sudo rm -rf CiandCdPrac
+            fi
+
+            # Clone latest code
             git clone https://github.com/Rajesh05Github/CiandCdPrac.git
             cd CiandCdPrac
-            docker compose down
+
+            # Optional: Ensure docker-compose.yml exists
+            if [ ! -f "docker-compose.yml" ]; then
+              echo "docker-compose.yml not found!" >&2
+              exit 1
+            fi
+
+            # Stop and rebuild Docker containers
+            docker compose down --remove-orphans
             docker compose build
             docker compose up -d --remove-orphans
           EOF
