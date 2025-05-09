@@ -16,5 +16,5 @@ services:
      dockerfile: ./backend/Dockerfile
     conatiner_name: backend
     restart: always
-    porst:
+    port:
       - "5004:5004"
