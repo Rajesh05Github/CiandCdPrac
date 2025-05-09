@@ -1,14 +1,17 @@
-#frontend docker file
+# Stage 1: Build the app
+FROM node:18-alpine as build
 
-From node:18-alpine as build 
 WORKDIR /app
+
+# Install dependencies
 COPY package*.json ./
 RUN npm install
+
+# Copy the rest of the application
 COPY . .
+
+# Build the React app
 RUN npm run build
 
-# second stage
-FROM nginx:alpine
-COPY --from=builder /app/build/ /usr/share/nginx/html/
+# Expose port 80 (for host machine's Nginx to serve)
 EXPOSE 80
-CMD ["nginx","-g","daemon off:"]
