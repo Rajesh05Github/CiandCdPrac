@@ -3,7 +3,7 @@ version: '3.8'
 services:
   frontend:
     build:
-      constext: ./frontend
+      context: ./frontend
       dockerfile: ./frontend/dockerfile
     container_name: frontend
     restart: always
