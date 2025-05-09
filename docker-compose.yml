@@ -1,4 +1,3 @@
-#writing compose file to run multiple container
 version: '3.8'
 services:
   frontend:
@@ -12,9 +11,9 @@ services:
   
   backend:
     build:
-     context: .
-     dockerfile: ./backend/Dockerfile
-    conatiner_name: backend
+      context: .
+      dockerfile: ./backend/Dockerfile
+    container_name: backend  # Fixed typo here
     restart: always
-    port:
+    ports:  # Changed 'port' to 'ports'
       - "5004:5004"
