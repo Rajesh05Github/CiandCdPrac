@@ -1,20 +1,21 @@
+version: '3.8'
 services:
   frontend:
     build:
-      context: .
+      context: .  # Assuming the Dockerfile is at ./Frontend/DockerFile
       dockerfile: ./Frontend/DockerFile
-      volume:
-        - ./frontend/build:/usr/share/nginx/html
-      espose: 
-        - "80"
+    volumes:
+      - ./frontend/build:/usr/share/nginx/html  # Mount the build folder to Nginx's HTML directory
+    ports:
+      - "80:80"  # Expose port 80 to the host machine
     container_name: frontend
     restart: always
   
   backend:
     build:
-      context: .
+      context: .  # Assuming the Dockerfile is at ./backend/DockerFile
       dockerfile: ./backend/DockerFile
-    container_name: backend  # Fixed typo here
+    container_name: backend
     restart: always
-    ports:  # Changed 'port' to 'ports'
-      - "5004:5004"
+    ports:
+      - "5004:5004"  # Expose backend port to host machine
