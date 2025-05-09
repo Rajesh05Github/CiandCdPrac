@@ -4,10 +4,8 @@ services:
     build:
       context: ./Frontend  # Assuming the Dockerfile is at ./Frontend/DockerFile
       dockerfile: DockerFile
-    volumes:
-      - ./frontend/build:/usr/share/nginx/html  # Mount the build folder to Nginx's HTML directory
-    # ports:
-    #   - "80:80"  # Expose port 80 to the host machine
+    ports:
+      - "3000:80"
     container_name: frontend
     restart: always
   
