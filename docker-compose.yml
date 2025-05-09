@@ -2,7 +2,7 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: ./Frontend/dockerfile
+      dockerfile: ./Frontend/DockerFile
     container_name: frontend
     restart: always
     ports:
@@ -11,7 +11,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: ./backend/Dockerfile
+      dockerfile: ./backend/DockerFile
     container_name: backend  # Fixed typo here
     restart: always
     ports:  # Changed 'port' to 'ports'
