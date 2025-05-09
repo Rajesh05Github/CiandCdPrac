@@ -1,8 +1,8 @@
 services:
   frontend:
     build:
-      context: ./Frontend
-      dockerfile: ./frontend/dockerfile
+      context: .
+      dockerfile: ./Frontend/dockerfile
     container_name: frontend
     restart: always
     ports:
