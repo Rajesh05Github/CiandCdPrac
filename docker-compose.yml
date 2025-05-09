@@ -6,8 +6,8 @@ services:
       dockerfile: DockerFile
     volumes:
       - ./frontend/build:/usr/share/nginx/html  # Mount the build folder to Nginx's HTML directory
-    ports:
-      - "80:80"  # Expose port 80 to the host machine
+    # ports:
+    #   - "80:80"  # Expose port 80 to the host machine
     container_name: frontend
     restart: always
   
