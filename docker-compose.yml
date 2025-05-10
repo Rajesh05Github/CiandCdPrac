@@ -5,7 +5,7 @@ services:
       context: ./Frontend  # Assuming the Dockerfile is at ./Frontend/DockerFile
       dockerfile: DockerFile
     ports:
-      - "3000:80"
+      - "5173:80"
     container_name: frontend
     restart: always
   

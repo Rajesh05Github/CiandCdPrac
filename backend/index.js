@@ -9,7 +9,7 @@ dbConnection()
 
 
 const corsOptions = {
-  origin: ["http://localhost:5173","http://localhost:5004"],
+  origin: ["http://localhost:5173","http://localhost:5004","http://cicdfrontend.rajeshit.xyz"],
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
