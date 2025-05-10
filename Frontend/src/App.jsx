@@ -9,7 +9,7 @@ function App() {
     <div className="w-screen h-screen">
       <nav className='w-full bg-gray-400 py-4'>
          <ul className='flex justify-center gap-4 text-white text-bold'>
-          <li><Link to="/creatUser">Create</Link></li>
+          <li><Link to="/creatUser">Creates</Link></li>
           <li><Link to="/user-list">Users</Link></li>
           <li><Link>About ME</Link></li>
          </ul>
