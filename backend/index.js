@@ -11,7 +11,7 @@ dbConnection()
 const corsOptions = {
   origin: [
     "http://localhost:5173",               
-    "http://cicdfrontend.rajeshit.xyz"    
+    "https://cicdfrontend.rajeshit.xyz"    
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
